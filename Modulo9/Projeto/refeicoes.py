@@ -5,22 +5,22 @@ from collections import namedtuple
 import menu
 
 
-alunoReg = namedtuple("alunoReg", "id, nome")
-listaAlunos = []
+refeicaoReg = namedtuple("refeicaoReg", "id, descricao")
+listarefeicao = []
 
 
 
 def encontrar_posicao(codigo):
     pos = -1
-    for i in range (len(listaAlunos)):
-        if listaAlunos[i].id == codigo:
+    for i in range (len(listarefeicao)):
+        if listarefeicao[i].id == codigo:
             pos = i
             break
                             
     return pos
 
 
-def inserir_aluno():
+def inserir_refeicao():
     cod = input("Qual o codigo? ")
 
     pos = encontrar_posicao(cod)
@@ -30,30 +30,30 @@ def inserir_aluno():
         return
 
     #ler dados
-    nome = raw_input("Qual o nome? ")
+    nome = raw_input("Qual é o nome da ementa? ")
     
-    registo = alunoReg(cod, nome)
-    listaAlunos.append(registo)
+    registo = refeicaoReg(cod, nome)
+    listarefeicao.append(registo)
 
 
-def pesquisar_aluno():
-    cod = input("Qual o codigo do aluno a pesquisar? ")
+def pesquisar_refeicao():
+    cod = input("Qual é a ementa que deseja pesquisar? ")
 
     pos = encontrar_posicao(cod)
 
     if pos == -1:
-        print "Não existe aluno com esse código"
+        print "Não existe nenhuma ementa referente a esse código"
         return
 
-    print "Código: ", listaAlunos[pos].id
-    print "Nome: ", listaAlunos[pos].nome
+    print "Código: ", listarefeicao[pos].id
+    print "Nome: ", listarefeicao[pos].nome
     
 
 
 def listar_alunos():
-    for i in range (len(listaAlunos)):
-        print "Código: ", listaAlunos[i].id
-        print "Nome: ", listaAlunos[i].nome
+    for i in range (len(listarefeicao)):
+        print "Código: ", listarefeicao[i].id
+        print "Nome: ", listarefeicao[i].nome
         
   
 
@@ -61,12 +61,12 @@ def eliminar_aluno():
     cod = input ("Código do aluno a eliminar --> ")
     pos = encontrar_posicao(cod)
 
-    if pos == -1:
+    if pos == -1: 
         print "Não existe aluno com esse código"
         return
 
     # TODO: Confirmar eliminação
-    listaAlunos.pop(pos)
+    listarefeicao.pop(pos)
 
 
     
