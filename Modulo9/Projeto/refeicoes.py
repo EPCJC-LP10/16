@@ -50,7 +50,7 @@ def pesquisar_refeicao():
     
 
 
-def listar_alunos():
+def listar_refeicao():
     for i in range (len(listarefeicao)):
         print "Código: ", listarefeicao[i].id
         print "Nome: ", listarefeicao[i].nome
@@ -58,11 +58,11 @@ def listar_alunos():
   
 
 def eliminar_aluno():
-    cod = input ("Código do aluno a eliminar --> ")
+    cod = input ("Código da ementa a eliminar--> ")
     pos = encontrar_posicao(cod)
 
     if pos == -1: 
-        print "Não existe aluno com esse código"
+        print "Não existe nenhuma ementa com esse codigo"
         return
 
     # TODO: Confirmar eliminação
